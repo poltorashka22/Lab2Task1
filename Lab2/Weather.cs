@@ -4,45 +4,45 @@ namespace Lab2
 {
     public class Weather
     {
-        private int temperature;
-        private int humidity;
-        private int windSpeed;
+        private int _temperature;
+        private int _humidity;
+        private int _windSpeed;
 
-        public int Temperature { get => temperature; set => temperature = value; }
+        public int Temperature { get => _temperature; set => _temperature = value; }
 
-        public int Humidity { get => humidity; set => humidity = value; }
+        public int Humidity { get => _humidity; set => _humidity = value; }
 
-        public int WindSpeed { get => windSpeed; set => windSpeed = value; }
+        public int WindSpeed { get => _windSpeed; set => _windSpeed = value; }
 
         public Weather()
         {
-            temperature = 1;
-            humidity = 1;
-            windSpeed = 1;
+            _temperature = 1;
+            _humidity = 1;
+            _windSpeed = 1;
         }
 
         public Weather(int temperature, int humidity, int windSpeed)
         {
-            this.temperature = temperature;
-            this.humidity = humidity;
-            this.windSpeed = windSpeed;
+            this._temperature = temperature;
+            this._humidity = humidity;
+            this._windSpeed = windSpeed;
         }
 
         public Weather(Weather other)
         {
-            temperature = other.temperature;
-            humidity = other.humidity;
-            windSpeed = other.windSpeed;
+            _temperature = other._temperature;
+            _humidity = other._humidity;
+            _windSpeed = other._windSpeed;
         }
 
         public int GetMinValue()
         {
-            return Math.Min(Math.Min(temperature, humidity), windSpeed);
+            return Math.Min(Math.Min(_temperature, _humidity), _windSpeed);
         }
 
         public override string ToString()
         {
-            return $"Температура: {temperature}°C, Влажность: {humidity}%, Скорость ветра: {windSpeed} км/ч";
+            return $"Температура: {_temperature}°C, Влажность: {_humidity}%, Скорость ветра: {_windSpeed} км/ч";
         }
     }
 }
