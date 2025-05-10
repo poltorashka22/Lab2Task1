@@ -1,42 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lab2
+﻿namespace Lab2
 {
     public class WeatherForecast : Weather
     {
         private int tomorrowTemp;
         private int dayAfterTomorrowTemp;
 
-        public WeatherForecast(int temperature, int humidity, int windSpeed, int tomorrowTemp, int dayAfterTomorrowTemp) : base(temperature, humidity, windSpeed) // Конструктор для создания прогноза погоды
+        public WeatherForecast(int todayTemperature, int humidity, int windSpeed,
+                             int tomorrowTemp, int dayAfterTomorrowTemp)
+            : base(todayTemperature, humidity, windSpeed)
         {
             this.tomorrowTemp = tomorrowTemp;
             this.dayAfterTomorrowTemp = dayAfterTomorrowTemp;
         }
 
-        public WeatherForecast(WeatherForecast other) : base(other)// Конструктор копирования
+        public WeatherForecast(WeatherForecast other) : base(other)
         {
             this.tomorrowTemp = other.tomorrowTemp;
             this.dayAfterTomorrowTemp = other.dayAfterTomorrowTemp;
         }
 
-        public bool IsTomorrowWarmerThanToday() // Метод для сравнения средней температуры
+        public bool IsTomorrowWarmerThanToday()
         {
-            return tomorrowTemp > this.Temperature;
+            return tomorrowTemp > Temperature;
         }
 
-        public double GetAverageTemperature() // Метод для вычисления средней температуры
+        public double GetAverageTemperature()
         {
-            return (this.Temperature + tomorrowTemp + dayAfterTomorrowTemp) / 3.0;
+            return (Temperature + tomorrowTemp + dayAfterTomorrowTemp) / 3.0;
         }
 
-
-        public override string ToString() // Метод ToString для формирования строки с информацией о погоде и прогнозом
+        public override string ToString()
         {
-            return base.ToString() + $"\nСегодня: {tomorrowTemp}°C, Послезавтра: {dayAfterTomorrowTemp}°C";
+            return base.ToString() + $"\nЗавтра: {tomorrowTemp}°C, Послезавтра: {dayAfterTomorrowTemp}°C";
         }
     }
 }
